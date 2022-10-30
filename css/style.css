@@ -1,0 +1,25 @@
+.article {
+    height: 500px;
+    width: 600px;
+    overflow: auto;
+}
+
+
+
+.paginator {
+    display: flex;
+    list-style: none;
+}
+
+.paginator li {
+    border: 1px solid rgb(5, 125, 158);
+    border-radius: 2px;
+    margin: 2px
+}
+
+.paginator li > a {
+    display: inline-flex;
+    padding: 6px 18px;
+    text-align: center;
+    text-decoration: none;
+}

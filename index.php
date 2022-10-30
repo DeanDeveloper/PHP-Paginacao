@@ -12,39 +12,54 @@ require_once 'app/query.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/style.css">
     <title>Paginação</title>
 </head>
 
 <body>
 
 
-
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Endereço</th>
-            <th>Profissão</th>
-        </tr>
+    <article class="article">
 
 
-        <?php foreach ($result as $items) { ?>
-            
-            <?php
-                extract($items);
-            ?>
-
-
+        <table class="table table-striped">
             <tr>
-                <td> <?= $username; ?> </td>
-                <td> <?= $address; ?> </td>
-                <td> <?= $profession; ?> </td>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Profissão</th>
             </tr>
 
 
-        <?php } ?>
+            <?php foreach ($result as $items) { ?>
 
-    </table>
+                <?php
+                extract($items);
+                ?>
 
+
+                <tr>
+                    <td> <?= $username; ?> </td>
+                    <td> <?= $address; ?> </td>
+                    <td> <?= $profession; ?> </td>
+                </tr>
+
+
+            <?php } ?>
+
+        </table>
+
+    </article>
+
+
+    <ul class="paginator">
+        <li><a href="#">Primeira</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">Ultima</a></li>
+    </ul>
 
 </body>
 
