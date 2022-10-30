@@ -13,7 +13,7 @@
 
 
 
-    // With Static Date
+    // With Static Data
     $result = 
     [
         ['username'=> 'Jodean', 'address'=>'Endereço da rua', 'profession'=>'alguma profissão'],
