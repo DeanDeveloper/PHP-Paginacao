@@ -35,7 +35,7 @@ require_once 'app/query.php';
             <?php foreach ($result as $items) { ?>
 
                 <?php
-                extract($items);
+                    extract($items);
                 ?>
 
 
