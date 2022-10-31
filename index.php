@@ -1,6 +1,6 @@
 <?php
 
-require_once 'app/query.php';
+    require_once 'app/connection.php';
 
 ?>
 
@@ -15,52 +15,50 @@ require_once 'app/query.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     
     <link rel="stylesheet" href="css/style.css">
-    <title>Paginação</title>
+    <title>Paginação Simples</title>
 </head>
 
 <body>
 
 
-    <article class="article">
-
-
-        <table class="table table-striped">
-            <tr>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>Profissão</th>
-            </tr>
-
-
-            <?php foreach ($result as $items) { ?>
-
-                <?php
-                    extract($items);
-                ?>
-
-
-                <tr>
-                    <td> <?= $username; ?> </td>
-                    <td> <?= $address; ?> </td>
-                    <td> <?= $profession; ?> </td>
-                </tr>
-
-
-            <?php } ?>
-
-        </table>
+    <article class="article list-pagination">
 
     </article>
 
 
+
+
+
+    <?php
+
+        $stmt = "SELECT * FROM usuarios";
+        $stmt = $connection->prepare($stmt);
+        $stmt->execute();
+        $result = $stmt->rowCount();
+
+        $quantidade_por_pagina = 10;
+
+        $paginacao = ceil(intval($result) / $quantidade_por_pagina);
+ 
+    ?>
+
+
+
     <ul class="paginator">
-        <li><a href="#">Primeira</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">Ultima</a></li>
+        <li><a href="#" onclick=listarPaginacao(1)>Primeira</a></li>
+
+        <?php 
+            for($i = 1; $i <= $paginacao; $i++) {
+                echo '<li><a href="#" class="" onclick=listarPaginacao('.$i.') >'.$i.'</a></li>';
+            }
+        ?>
+
+        <li><a href="#" onclick=listarPaginacao(<?= $paginacao ?>)>Ultima</a></li>
     </ul>
 
+
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
