@@ -36,7 +36,7 @@
         $stmt->execute();
         $result = $stmt->rowCount();
 
-        $quantidade_por_pagina = 10;
+        $quantidade_por_pagina = 5;
 
         $paginacao = ceil(intval($result) / $quantidade_por_pagina);
  

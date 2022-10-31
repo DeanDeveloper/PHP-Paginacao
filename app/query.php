@@ -13,7 +13,7 @@ if($pagina_atual <= 0) {
 
 
 // regra de negocio
-$quantidade_por_pagina = 10;
+$quantidade_por_pagina = 5;
 
 $listar = ($quantidade_por_pagina * $pagina_atual) - $quantidade_por_pagina;
 
@@ -26,6 +26,9 @@ $stmt->execute();
 $result = $stmt->fetchAll();
 
 ?>
+
+
+
 
 
 <table class="table table-striped">
@@ -55,5 +58,5 @@ $result = $stmt->fetchAll();
 
     </table>
 
-    
+    <p class="exibindo_pagina"></p>
 
